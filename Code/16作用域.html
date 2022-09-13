@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 一段程序代码中所用到的名字并不总是有效和可用的，而限定这个名字的可用性的代码范围就是这个名字的作用域。
+        // js的作用域: 全局作用域 局部作用域
+
+        // 全局变量只有浏览器关闭时才会销毁，比较占内存资源；局部变量当我们程序执行完毕后就会销毁，比较节约内存资源。
+        // 局部变量：在局部作用域内定义的变量
+
+        // script中没有块作用域
+        var a =10;
+        if(a){
+            var num1 = 12;
+        }
+        console.log(num1);  // 块作用域中定义的变量也是可以输出的。
+
+
+        // 作用域链:根据在内部函数可以访问外部函数变量的这种机制，用户链式查找决定哪些数据能被内部函数访问，就称作作用域链。
+        var num = 10;
+        function fn() {
+            var num = 20;
+
+            function fun() {
+                console.log(num);
+            }
+            fun();
+        }
+        fn();
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

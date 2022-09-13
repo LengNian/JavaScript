@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // if 的语法结构
+        // if (条件表达式) {
+            // 执行语句 
+        // }
+        // else后面没有条件，直接跟大括号
+        if(3 < 5){
+            alert("weiwei")
+        }
+        else {
+            alert("haha")
+        }
+
+        // 多分支语句 利用多个条件选择不同的语句执行 得到不同的结果(只能执行其中的一个)
+        // if (条件表达式1) {
+        //     // 语句1
+        // }
+        // else if (条件表达式2) {
+        //     // 语句2
+        // }
+        // else if (条件表达式3) {
+        //     // 语句3
+        // }
+        // else {
+        //     // 最后的语句
+        // }
+        // 如果条件表达式1满足就执行语句1执行完毕后，退出整个if分支语句
+        // 如果条件表达式1不满足，则判断条件表达式2 满足的话，执行语句2，以此类推
+
+
+        // 三元表达式   条件表达式？表达式1:表达式2
+        // 如果条件表达式结果为真，则返回表达式的值，如果条件表达式结果为假，则返回表达式2的值
+        var num = 10;
+        var result = num > 5 ? "是的" : "不是的";  // 表达式是有返回值的
+        console.log(result);
+
+        // 补0
+        var time = prompt('请输入一个0-59之间的数字');
+        var result = time < 10 ? '0' + time : time;
+        console.log(result);
+
+
+        // switch 语句  switch 转换、开关  case小例子或者选项的意思  若果当前case，没有break则不会退出switch是继续执行下一个case
+        // switch(表达式){
+        //     case value1:
+        //         执行语句1;
+        //         break;
+        //     case value2:
+        //         执行语句2;
+        //         break;
+        //     ...
+        //     default:
+        //         执行最后的语句;
+        // }
+
+
+        // switch和if else if语句的区别
+        // switch...case语句通常处理case为比较确定值的情况，而if...else...语句更加灵活，常用于范围判断(大于、等于某个范围)
+        // switch语句进行条件判断后直接执行程序的条件语句，而if...else语句有几种条件，就得判断多少次。
+        // 分支比较少时，if...else语句的执行效率比switch语句高。
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

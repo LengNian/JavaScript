@@ -1,0 +1,27 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <button>点击</button>
+        <p>abc</p>
+        <script>
+            // 1.document.write 
+            // 是直接将内容写入页面的内容流， 但是文档流执行完毕，它会导致页面全部重绘
+            var btn = document.querySelector('button');
+            btn.onclick = function() {
+                document.write('<div>123</div>');
+            }
+
+            // 2.innerHTML 创建元素
+            // innerHTML 是将内容写入某个DOM节点，不会导致页面全部重绘， innerHTML创建多个元素效率更高(不要拼接字符串，采取数组形式拼接)，结构稍微复杂
+
+            // 3.document.createElement()  创建元素
+            // 创建多个元素效率稍低，但是结构更清晰。
+        </script>
+    </body>
+    </html>

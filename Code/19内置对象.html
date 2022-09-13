@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // js中对象分为3种:自定义对象、内置对象、浏览器对象
+        // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_objects
+        // 查阅MDN文档 
+
+        // 三个取整方法 Math.floor()向下取整  Math.ceil()向上取整  Math.round()四舍五入，.5往大了取
+        console.log(Math.floor(1.1)); // 1
+        console.log(Math.floor(1.9)); // 1
+
+        console.log(Math.ceil(1.1));  // 2
+        console.log(Math.ceil(1.9));  // 2
+
+        console.log(Math.round(1.1)); // 1
+        console.log(Math.round(1.9)); // 2
+
+
+
+        // 随机数方法random() [0,1)
+        console.log(Math.random());
+        // 得到两个数之间的随机整数，并且包含这2个整数
+        function getRandom(min, max)
+        {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        console.log(getRandom(10, 15));
+
+
+        
+        // 日期对象 Date()是一个构造函数，必须使用new
+        var arr = new Array();
+        var obj = new Object();
+
+        // 如果没有参数返回当前系统的时间
+        var date = new Date();
+        console.log(date);
+        // 数字型 2019, 10, 01 或者是字符串型 '2019-10-1 8:8:8'
+        var date1 = new Date(2019, 10, 1);
+        console.log(date1); // 返回的是11月,不是10月
+        var date2 = new Date('2019-10-1 8:8:8');
+        console.log(date2);
+
+        var date3 = new Date();
+        console.log(date3.getFullYear());
+        console.log(date3.getMonth() + 1); // 月份 返回的月份小1个月 记得月份
+        console.log(date3.getDay()); // 周一返回的是1 周六返回的是6 周日返回的是0
+
+        var year = date3.getFullYear();
+        var month = date3.getMonth() + 1;
+        var dates = date3.getDate();
+        console.log('今天是' + year + '年' + month + '月' + dates + '号。');
+
+        function getTime() {
+            var time = new Date();
+            var h = time.getHours();
+            h = h < 10 ? '0' + h : h;
+            var m = time.getMinutes();
+            m = m < 10 ? '0' + m : m;
+            var s = time.getHours();
+            s = s < 10 ? '0' + s : s;
+
+            return h + ':' + m + ':' + s;
+        }
+        console.log(getTime());
+
+
+        // 根据Date总的毫秒数(时间戳)，不是当前时间的毫秒数，而是距离1970年1月1日过了多少毫米数
+        console.log(date3.valueOf());
+        console.log(date3.getTime());
+        var date4 = +new Date();
+        console.log(date4);
+        console.log(Date.now());  // H5新增
+
+
+
+        //  数组对象
+        var arr = new Array(2, 3);  // 等价于[2, 3]
+        console.log(arr);
+
+
+        // 检测是否为数组
+        // (1) instanceof 运算符，用来检测是否为数组
+        var arr = [];
+        var obj = {};
+        console.log(arr instanceof Array);
+        console.log(obj instanceof Array);
+        // (2) Array.isArray(参数)
+        console.log(Array.isArray(arr));
+        console.log(Array.isArray(obj));
+
+
+        // 添加删除数组元素方法
+        // 1.push() 在数组末尾，添加一个或者多个数组元素 push()返回值是新数组的长度
+        var arr = [1,2,3];
+        arr.push(4, 'pig');
+        console.log(arr);
+
+        // 2.unshift()在数组开头添加一个元素,返回值是新数组长度
+        arr.unshift('cat');
+        console.log(arr);
+
+        // 3. pop()删除数组的最后一个元素,返回值是删除的元素
+        arr.pop()
+        console.log(arr);
+
+        // 4.shift() 删除数组的第一个元素，返回值是删除的元素
+        arr.shift();
+        console.log(arr);
+
+
+        // 数组排序
+        // 1.翻转
+        var arr = ['a', 2, 4];
+        console.log(arr.reverse());
+
+        // 2.排序
+        var arra = [3,4,7,1];
+        arra.sort(function(a, b) {
+            return a - b; // 升序  b-a 降序
+        })
+        console.log(arra);
+
+
+        // 数组索引
+        //返回数组元素索引方法: indexOf(数组元素) 作用就是返回该数组元素的索引号(只返回第一个)，找不到元素返回-1
+        var arr = ['red', 'blue', 'tellow', 'red'];
+        console.log(arr.indexOf('red'));
+        console.log(arr.lastIndexOf('red'));  // 从后面开始查找
+
+
+        // 数组去重
+        function unique(arr) {
+            var newArr = [];
+            for(var i = 0; i < arr.length; i++) {
+                if(newArr.indexOf(arr[i]) === -1) {
+                    newArr.push(arr[i]);
+                } 
+            }
+            return newArr;
+        }
+        var demo = unique(['c', 'a', 'e', 'r', 'a', 'g']);
+        console.log(demo);
+
+
+        // 数组转换为字符串
+        // 1.toString()
+        var arr = [1, 2, 3];
+        console.log(arr.toString());
+
+        // 2.join
+        var arr1 = ['green', 'blue', 'pink'];
+        console.log(arr1.join());
+        console.log(arr1.join('-'));
+        console.log(arr1.join('&'));
+
+
+
+        // 字符串对象
+        var str = 'andy'
+        console.log(str.length);
+        // 对象才有属性方法 复杂数据类型才有属性和方法
+        // 简单数据为什么会有length属性？  --> 基本包装类型: 就是把简单数据类型包装成为了复杂数据类型
+        // (1) 把简单数据类型包装为复杂数据类型
+        var temp = new String('andy');
+        // (2) 把临时变量的值给str
+        str = temp;
+        // (3) 销毁这个临时变量
+        temp = null;
+
+
+        // 字符串的不可变   (指的是里面的值不可变，虽然看上去可以改变内容，但其实是地址变了，内存中开辟了一个内存空间)
+
+        // 根据字符返回位置  str,inedxOf('要查找的字符', [起始的位置])
+        var str = '改革春风吹满地，春天来了。';
+        console.log(str.indexOf('春'));
+        console.log(str.indexOf('春', 3)); // 从索引3开始往后查找
+
+        // 返回字符位置
+        var str = 'abcoefoxyozzop';
+        var num = 0;
+        var index = str.indexOf('o');
+        while(index !== -1){
+            console.log(index);
+            num++;
+            index = str.indexOf('o', index + 1);
+        }
+        console.log('o出现的次数:' + num);
+
+
+        // 根据位置返回字符
+        // 1.charAt(index)
+        var str = 'andy';
+        console.log(str.charAt(3));
+        // 2.charCodeAt(index)     返回对应字符的ASCII码
+        console.log(str.charCodeAt(0));
+        // 3.str[index]
+        console.log(str[0]);
+
+
+        // 统计出现次数最多的字符
+        var str = 'abcoefoxyozzop';
+        var o = {};
+        for(var i = 0; i< str.length; i++) {
+            var chars = str.charAt(i);
+            if(o[chars]){
+                o[chars]++;
+            }
+            else {
+                o[chars] = 1;
+            }
+        }
+        console.log(o);
+        var max = 0;
+        var ch = '';
+        for(var k in o){
+            if(o[k] > max){
+                max = o[k];
+                ch = k;
+            }
+        }
+        console.log(max + '   ' + ch);
+
+
+
+        // 字符串操作方法
+        // concat() 用于连接两个或多个字符串
+        var str = 'andy';
+        console.log(str.concat('red'));
+
+        // substr('截取的起始位置', '截取几个字符')
+        var str = '改革春风吹满地，春天来了。';
+        console.log(str.substr(2, 2));
+
+        // 替换字符 replace('被替换的字符', '替换为的字符')  只替换第一个字符
+        var str = 'andy';
+        console.log(str.replace('a', 'b'));
+        var str = 'abcoefoxyozzop';
+        while(str.indexOf('o') !== -1) {
+            str = str.replace('o', '*');
+        }
+        console.log(str);
+
+        // 字符转换为数组split('分隔符')
+        var str = 'pink, red, pig';
+        console.log(str.split(','));
+        
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

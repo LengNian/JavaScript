@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+
+    </ul>
+    <ol>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ol>
+    <div class="box">
+        <span class="erweima">×</span> 
+    </div>
+    <script>
+        // 一般的，节点至少拥有nodeType(节点类型)、nodeName(节点名称)和nodeValue(节点值)这三个基本属性。
+        // 利用DOM树可以把节点划分为不同的层级关系，常见的是父子兄层级关系。
+
+        // 1.父节点 parentNode
+        var erweima = document.querySelector('.erweima');
+        console.log(erweima.parentNode);  //得到离他最近的父节点，如果没有父节点，返回null
+
+
+        // 2.子节点 childNode  得到所有的子节点，包含元素节点、文本节点等。
+        // (1) chileNode
+        var ul = document.querySelector('ul');
+        console.log(ul.childNodes); // NodeList(9) [#text, li, #text, li, #text, li, #text, li, #text]
+        console.log(ul.childNodes[0].nodeType);  // 文本节点的节点类型为3
+        console.log(ul.childNodes[1].nodeType);  // 元素节点的节点类型为1
+
+        // (2) children 获取所有的子元素节点
+        console.log(ul.children);
+
+    </script>
+
+    <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ol>
+    <script>
+        var ol = document.querySelector('ol');
+        // 1.firstChild 获取第一个子节点，不管是文本节点还是元素节点
+        console.log(ol.firstChild);
+        // 2.firstElementChild / last ElementChild  返回第一个子元素节点
+        console.log(ol.firstElementChild);
+        // 3.实际开发写法
+        console.log(ol.children[0]);
+    </script>
+
+</body>
+</html>
