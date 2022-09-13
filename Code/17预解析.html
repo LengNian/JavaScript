@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // js解析器在运行js代码时分为两步: 预解析和代码执行
+        // 预解析:js引擎会把js里面所有的var还有function提升到当前作用域的最前面
+            // 预解析分为变量预解析(变量提升)和函数预解析(函数提升)。
+                // 变量提升就是把所有的变量声明提升到当前的作用域最前面，不提升赋值操作。
+                // 函数提升就是把所有函数声明提升到当前作用域的最前面。
+        // 代码执行:按照代码书写的顺序从上往下执行。 
+
+        // 输出结果:undefined
+        console.log(num);
+        var num = 10;
+
+        // 输出结果:报错
+        // fun();
+        // var fun = function{
+        //     console.log(22);
+        // }
+
+        // 输出结果:11
+        fn();
+        function fn() {
+            console.log(11);
+        }
+
+        console.log('案例:');
+        // 案例1:输出结果:undefined
+        var num = 10;
+        fun();
+        function fun() {
+            console.log(num);
+            var num = 20;
+        }
+        // 预解析过程:
+        // var num;
+        // function fun() 
+        // {
+        //     var num;
+        //     console.log(num);
+        //     num = 20;
+        // }
+        // fun();  // 根据链式法则，找最近的，即undefined
+        
+        // 案例2:输出结果:9 9 9 9 9 报错(受上面影响)
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a);
+        function f1() {
+            var a = b = c = 9;   //等效于var a = 9;b = 9; c = 9      var a = 9, b = 9, c = 9;  才等效于 var a,b,c; a = b = c = 9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        // 预解析过程:
+        function f1() {
+            var a;
+            a = b = c = 9;
+            console.log(a);
+            console.log(b);
+            console.log(c);
+        }
+        f1();
+        console.log(c);
+        console.log(b);
+        console.log(a); // 函数中的a是局部变量，所以这里报错
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

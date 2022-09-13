@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // js的一大特点就是单线程，也就是说，同一个时间只能做一件事
+        // 同步和异步  本质区别: 流水线上各个流程的执行顺序不同 
+        // 同步任务 都在主线程上执行，形成一个执行线
+        // 异步任务 js的异步是通过回调函数实现的。一般而言，异步任务有以下三种类型
+                // 1.普通事件 click、resize等； 2.资源加载 load、error等；  3.定时器，包括setInterval、setTimeout等
+
+
+        // JS执行机制:
+        // 1.先执行执行栈中的同步任务; 2.异步任务(回调函数)放入任务队列中; 3.一旦执行栈中的所有同步任务执行完毕，系统就按按次序读取任务队列中的异步任务，于是被读取的异步任务
+        // 结束等待状态，进入执行栈，开始执行。
+        // 由于主线程不断的重复获得任务、执行任务、再获取任务、再执行、所以这种机制被称为事件循环(event loop)。
+
+
+    </script>
+</body>
+</html>

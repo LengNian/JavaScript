@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 数组是一组数据的集合，其中的每个数据被称作元素，在数组中可以存放任意类型的元素，数组是一种将一组数据存储在单个变量名下的方式。
+        // js中创建数组有两种方式: 1.利用new创建数组; 2.利用数组字面创建数组;
+        var arr = new Array();  //创建一个空数组
+        console.log(typeof arr);
+        var arr = [1, 2, 'pink', true];
+        console.log(typeof arr);
+        console.log(arr[0]);
+        console.log(arr.length);  // arr.length动态监测数组元素的个数
+
+
+        // 新增数组元素:
+        // 1.修改length长度
+        var arr = [1, 2, 3];
+        console.log(arr.length);
+        arr.length = 5;
+        console.log(arr);
+        console.log(arr[4]);
+
+        // 2.修改索引号
+        arr[5] = 4;
+        console.log(arr);
+
+        arr = 'hahah';
+        console.log(arr); // 不要直接给数组名赋值，否则会覆盖掉数组里面的元素。
+
+
+        // 冒泡排序
+        var arr = [5, 4, 3, 2, 1];
+        for(var i = 0; i <= arr.length - 1; i++)
+        {
+            for(var j = 0; j <= arr.length - i -1; j++) 
+            {
+                if(arr[j] > arr[j+1])
+                {
+                    var temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+
+                }
+            }
+        }
+        console.log(arr);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

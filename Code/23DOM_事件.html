@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">唐伯虎</button>
+    <div>123</div>
+    <script>
+        // js使我们有能力创建动态页面，事件是可以被js侦测到的行为
+        // 简单理解就是触发...响应机制
+        // 网页中的每个元素都可以产生某些可以出发js的事件
+
+        // 事件由三部分组成，事件源  事件类型 事件处理程序 我们也称为事件三要素
+        // (1) 事件源:事件被触发的对象 谁 按钮
+        var btn = document.getElementById('btn1');
+        // (2) 事件类型 如何触发 什么事件 
+        // (3) 事件处理程序 通过一个函数赋值的方式完成
+        var div = document.querySelector('div');
+        btn.onclick = function() {
+            alert('点秋香')
+        }
+
+
+        // 执行事件的步骤: 1.获取事件源; 2. 绑定事件(注册事件); 3.添加事件处理程序
+        div.onclick = function() {
+            console.log('我被选中了');
+        }
+    </script>
+    
+    <button id = 'btn'>显示当前系统时间</button>
+    <div id="dv">某个时间</div>
+
+    <script>
+        // 操作元素
+        // 1.改变元素内容
+        // (1)element.innerText() 从起始位置到终止位置的内容，但它去除html标签，同时空格和换行也会去掉
+        var btn = document.getElementById('btn');
+        var div = document.getElementById('dv');
+        btn.onclick = function(){
+            div.innerText = getDate();
+        }
+        function getDate() {
+            var date3 = new Date();   
+            var year = date3.getFullYear();
+            var months = date3.getMonth() + 1;
+            var dates = date3.getDate();
+            var arr = ['星期日', '星期一', '星期二', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            var day = date3.getDay;
+            return '今天是:' + year + '年' + months + '月' + dates + '日。'
+        }
+
+        // （2）
+
+
+
+        
+    </script>
+    <div id="dd"></div>
+    <div id="ddd"></div>
+    <p>123
+        <span>我是文字</span>
+    </p>
+    <script>
+        // innerText和innerHTML区别:innerTxet不识别html标签，非标准，去除空格和换行
+        var div = document.getElementById('dd');
+        div.innerText = '<strong>今天是:</strong>2022';
+        // innerHTML识别html标签，标准，w3c标准，不去除空格和换行
+        var divv = document.getElementById('ddd');
+        divv.innerHTML = '<strong>今天是:</strong>2022';
+        // 这两个属性是可读写的，可以获取元素里面的内容
+        var p = document.querySelector('p');
+        console.log(p.innerText);
+        console.log(p.innerHTML);
+    </script>
+
+    <button id="ldh">刘德华</button>
+    <button id="zxy">张学友</button><br>
+    <img src="./images/ldh.jpg" title="刘德华">
+    <script>
+        var ldh = document.getElementById('ldh');
+        var zxy = document.getElementById('zxy');
+        var img = document.querySelector('img');
+
+        zxy.onclick = function() {
+            img.src = './images/zxy.jpg';
+            img.title = '张学友思密达';
+        }
+        ldh.onclick = function () {
+            img.src = './images/ldh.jpg';
+            img.title = '刘德华思密达';
+        }
+
+    </script>
+    
+</body>
+</html>
