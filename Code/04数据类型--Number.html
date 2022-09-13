@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // js是一种弱类型或者动态语言，这意味着不用提前声明变量的类型，在程序运行过程中，类型会被自动确定。
+        // 1.Number(默认:0); 2.Boolean(flase); 3.String(""); 4.Undefined(undefined); 5.Null(null)
+        var num1 = 010;  //八进制 0-7 程序里面数字前面加0，表示八进制
+        console.log(num1);   //  010 八进制转换为10进制就是8
+        
+        var num2 =0x9   //十六进制 0-9 a-f 数字前面加0x表示十六进制
+        console.log(num2);
+
+        //js数字型的最大值和最小值
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MIN_VALUE);
+        //js数字型的三个特殊值
+        console.log(Infinity);   //代表无穷大，大于任何值
+        console.log(-Infinity);   //代表无穷小，小于任何值
+        console.log(NaN);        //Not a number 代表一个非数值 
+
+        // isNan() 用来判断非数字，如果是数字，返回false，否则返回True
+        console.log(isNaN(12));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
